@@ -227,8 +227,8 @@ server.get(commandRegEx, function (req, res, next) {
     checkReq(config, req, res);
     
     // Set path
-    var path = config.base + "/" + req.params[2];
     
+    var path = config.base + "/" + decodeURI(req.params[2]);
     switch (req.params[1]) {
         // List contents of directory
         case "dir":
@@ -319,8 +319,8 @@ server.post(commandRegEx, function (req, res, next) {
     checkReq(config, req, res);
     
     // Set path
-    var path = config.base + "/" + req.params[2];
     
+    var path = config.base + "/" + decodeURI(req.params[2]);
     switch (req.params[1]) {
         
         // Creates a new directory
@@ -393,8 +393,8 @@ server.put(commandRegEx, function (req, res, next) {
     checkReq(config, req, res);
     
     // Set path
-    var path = config.base + "/" + req.params[2];
     
+    var path = config.base + "/" + decodeURI(req.params[2]);
     switch (req.params[1]) {
         
         // Rename a file or directory
