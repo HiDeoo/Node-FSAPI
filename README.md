@@ -1,11 +1,13 @@
 # Node FileSystem API
 
-Node-FSAPI provides a RESTful (CRUD) server for interacting with remote file systems. It relies on 
-GET (Read), POST (Create), PUT (Update), and DELETE (Delete) commands with a plain-language syntax. 
+Node-FSAPI provides a RESTful (CRUD) server for interacting with remote file systems. It relies on
+GET (Read), POST (Create), PUT (Update), and DELETE (Delete) commands with a plain-language syntax.
+
+**This fork only includes the GET (Read) method.**
 
 ## Getting Started
 
-FSAPI provides a single-file `server.js` node controller with 2 core dependencies - [Restify](http://mcavage.github.io/node-restify) 
+FSAPI provides a single-file `server.js` node controller with 2 core dependencies - [Restify](http://mcavage.github.io/node-restify)
 and [node-fs-extra](https://github.com/jprichardson/node-fs-extra). The file contains a `config` object which allows for easy configuration.
 
 ### Security
@@ -144,7 +146,7 @@ Initially it is important to define the connection information, which is done th
 fsapi.config("http://yourserver:port", "api-key", {OPTIONAL - Bool 'Validate'});
 ```
 
-The config process (with arguments) sets these values into localStorage (with Cookie fallback). There is a third argument `validate` which defaults to `true`. 
+The config process (with arguments) sets these values into localStorage (with Cookie fallback). There is a third argument `validate` which defaults to `true`.
 If set to `false` in the config call above the entire response from the server will be returned and must be parsed manually.
 
 Calling `fsapi.config()` without arguments will return an object with the url and key. You can change either value individually using:
@@ -204,7 +206,7 @@ The fsapi validate method is used to parse the response from the server, this me
 fsapi.validate(data);
 ```
 
-For a sucessful response this method will return boolean `true`, or in cases such as `.list()` and `.open()` will return the 
+For a sucessful response this method will return boolean `true`, or in cases such as `.list()` and `.open()` will return the
 data from the response.
 
 On error or failure, the response from `.validate()` will be boolean `false`.
